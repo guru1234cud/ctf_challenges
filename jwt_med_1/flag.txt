@@ -1,0 +1,1 @@
+FLAG{jwt_alg_attendance}
