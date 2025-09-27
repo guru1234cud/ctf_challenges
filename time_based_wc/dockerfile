@@ -1,0 +1,20 @@
+# Dockerfile (option A) — app listens on 6000; map host 5001 -> container 6000 at run time
+FROM node:18-alpine
+
+# Create app directory
+WORKDIR /app
+
+# Copy package files first to leverage Docker layer cache (if you have them)
+COPY package*.json ./
+
+# Install dependencies (if package.json exists)
+RUN npm Install
+
+# Copy app source
+COPY . .
+
+# Expose the port the app actually listens on
+EXPOSE 6000
+
+# Start the app (change filename if your entry is different)
+CMD ["node", "app.js"]
