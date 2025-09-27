@@ -14,7 +14,7 @@ app.use(session({
   cookie: { maxAge: 60 * 60 * 1000 }
 }));
 
-const mongoUrl = 'mongodb://127.0.0.1:27017';
+const mongoUrl = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017';;
 const dbName = 'nosqli_role_lab';
 let db, usersCollection;
 
@@ -70,7 +70,7 @@ app.post('/login', async (req, res) => {
 
     // If admin, console.log the flag encoded in base64 (single flag)
     if (req.session.role === 'admin') {
-      const flag = 'flag{admin_access_granted}';
+      const flag = 'cybercom{n0_sQ1_but_Y3s!}';
       const b64 = Buffer.from(flag, 'utf8').toString('base64');
       // log the base64-encoded flag to the server console (intentional for the lab)
       console.log('[ADMIN FLAG - base64] ' + b64);

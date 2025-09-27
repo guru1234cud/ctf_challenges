@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017" # optional: expose to host for local debugging
+
+  app:
+    build: .
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017
+      - PORT=3000
+      - NODE_ENV=production
+    ports:
+      - "3000:3000" # map host 3000 -> container 3000
+    volumes:
+      - .:/usr/src/app # optional: useful for local development
+    restart: on-failure
+
+volumes:
+  mongo-data:

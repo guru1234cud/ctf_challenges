@@ -3,7 +3,7 @@ const app = express();
 const port = 6000;
 
 // The hidden flag (you can change this)
-const FLAG = "CTF{timing_attack_master}";
+const FLAG = "cybercom{CaN_Y0u_W8_4_Me_Babe?}";
 
 // Route to get character timing
 app.get("/flag/:index", async (req, res) => {

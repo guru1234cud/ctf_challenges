@@ -22,7 +22,7 @@ RUN echo "seses}" > /p4.rot13
 
 # optional decoy stage (harmless)
 FROM alpine:3.18 AS decoy
-RUN echo "FLAG{QuAgmaIeR69}" > /decoy_note.txt
+RUN echo "FLAG{QuAgmaIeR53}" > /decoy_note.txt
 
 # final image: copy parts from maker stages (so history shows only COPY --from)
 FROM alpine:3.18 AS final

@@ -77,7 +77,7 @@ app.post("/upload", (req, res) => {
 });
 
 // Secret flag endpoint
-app.get("/dibfdifbgh", (req, res) => {
+app.get("/dibfdi", (req, res) => {
   res.send(flag);
 });
 
